@@ -1,6 +1,7 @@
 <p align="center"><img width="40%" src="logo/deeplearning-ai.png" /></p>
--------------------
-A series of online courses offered by [deeplearning.ai](https://www.deeplearning.ai/). I would like to say thanks to Prof. [**Andrew Ng**](www.andrewng.org) and his colleagues for spreading knowledge to normal people and great courses sincerely.  
+--------------------------------------------------------------------------------
+
+A series of online courses offered by [deeplearningai](https://www.deeplearning.ai/). I would like to say thanks to Prof. [**Andrew Ng**](www.andrewng.org) and his colleagues for spreading knowledge to normal people and great courses sincerely.  
 
 
 ### Reminder
