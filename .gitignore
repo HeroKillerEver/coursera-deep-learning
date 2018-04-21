@@ -1,4 +1,11 @@
 *.pdf
 datasets
 images
-
+*.txt
+output
+data
+*.wav
+nb_images
+models
+.ipynb_checkpoints
+.DS_Store
