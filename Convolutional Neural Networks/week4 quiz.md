@@ -41,6 +41,6 @@
 
 10. You are working with 3D data. You are building a network layer whose input volume has size 32x32x32x16 (this volume has 16 channels), and applies convolutions with 32 filters of dimension 3x3x3 (no padding, stride 1). What is the resulting output volume?
 
-  > `Undefined: the convolution step is impossible`
+  > `30x30x30x16`
 
 
