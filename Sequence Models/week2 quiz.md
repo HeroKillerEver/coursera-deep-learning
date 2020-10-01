@@ -1,47 +1,45 @@
-## Week 1 Quiz - Sequence models & Attention mechanism
+## Week 2 Quiz - Natural Language Processing & Word Embeddings
 
-1. This model is a “conditional language model” in the sense that the encoder portion (shown in green) is modeling the probability of the input sentence x.
-	
-	- False
+1. Suppose you learn a word embedding for a vocabulary of 10000 words. Then the embedding vectors should be 10000 dimensional, so as to capture the full range of variation and meaning in those words.
 
-2. In beam search, if you increase the beam width B, which of the following would you expect to be true? Check all that apply.
+    - False
 
-	- Beam search will run more slowly.
-	- Beam search will use up more memory.
-	- Beam search will generally find better solutions (i.e. do a better job maximizing P(y∣x))
+2. What is t-SNE?
 
-3. In machine translation, if we carry out beam search without using sentence normalization, the algorithm will tend to output overly short translations.
+    - A non-linear dimensionality reduction technique
 
-	- True
+3. Suppose you download a pre-trained word embedding which has been trained on a huge corpus of text. You then use this word embedding to train an RNN for a language task of recognizing if someone is happy from a short snippet of text, using a small training set.
 
-4. Suppose you are building a speech recognition system, which uses an RNN model to map from audio clip x to a text transcript y. Your algorithm uses beam search to try to find the value of y that maximizes P(y∣x). On a dev set example, given an input audio clip, your algorithm outputs the transcript y^= “I’m building an A Eye system in Silly con Valley.”, whereas a human gives a much superior transcript y∗= “I’m building an AI system in Silicon Valley.” According to your model,
-P(y^∣x)=1.09∗10−7
-P(y∗∣x)=7.21∗10−8
-Would you expect increasing the beam width B to help correct this example?
+    - True
 
-	- No, because P(y∗∣x)≤P(y^∣x) indicates the error should be attributed to the RNN rather than to the search algorithm.
+4. Which of these equations do you think should hold for a good word embedding? (Check all that apply) 
 
-5. Continuing the example from Q4, suppose you work on your algorithm for a few more weeks, and now find that for the vast majority of examples on which your algorithm makes a mistake, P(y∗∣x)>P(y^∣x). This suggest you should focus your attention on improving the search algorithm.
-	
-	- True
+    - e_{boy} - e_{girl} \approx e_{brother} - e_{sister}
+    - e_{boy} - e_{brother} \approx e_{girl} - e_{sister}
 
-6. questions omitted
-	
-	- We expect α<t,t′> to be generally larger for values of a<t′> that are highly relevant to the value the network should output for y<t>. (Note the indices in the superscripts.)
-	- ∑t′α<t,t′>=1 (Note the summation is over t′.)
+5. Let E be an embedding matrix, and let o_{1234}? be a one-hot vector corresponding to word 1234. Then to get the embedding of word 1234, why don’t we call E * o_{1234}? in Python?
 
-7. The network learns where to “pay attention” by learning the values e<t,t′>, which are computed using a small neural network: We can't replace s<t−1> with s<t> as an input to this neural network. This is because s<t> depends on α<t,t′> which in turn depends on e<t,t′>; so at the time we need to evalute this network, we haven’t computed s<t> yet.
+    - It is computationally wasteful.
 
-	- True
+6. When learning word embeddings, we create an artificial task of estimating P(target | context). It is okay if we do poorly on this artificial prediction task; the more important by-product of this task is that we learn a useful set of word embeddings.
 
-8. Compared to the encoder-decoder model shown in Question 1 of this quiz (which does not use an attention mechanism), we expect the attention model to have the greatest advantage when:
+    - True
 
-	- The input sequence length Tx is large.
+7. In the word2vec algorithm, you estimate P(t | c), where t is the target word and c is a context word. How are t and c chosen from the training set? Pick the best answer.
 
-9. Under the CTC model, identical repeated characters not separated by the “blank” are collapsed. Under the CTC model, what does the following string collapse to?
+    - c and t are chosen to be nearby words.
 
-	- cookbook
+8. Suppose you have a 10000 word vocabulary, and are learning 500-dimensional word embeddings. The word2vec model uses the following softmax function:
 
-10. In trigger word detection, x<t> is:
+    - \theta_t and e_c are both 500 dimensional vectors.
+    - \theta_t and e_c are both trained with an optimization algorithm such as Adam or gradient descent.
 
-	- Features of the audio (such as spectrogram features) at time t.
+9. Suppose you have a 10000 word vocabulary, and are learning 500-dimensional word embeddings.The GloVe model minimizes this objective:
+
+    - \theta_i and e_j should be initialized randomly at the beginning of training.
+    - X_{ij} is the number of times word i appears in the context of word j.
+    - The weighting function f(.) must satisfy f(0) = 0.
+
+10. You have trained word embeddings using a text dataset of m_1? words. You are considering using these word embeddings for a language task, for which you have a separate labeled dataset of m_2? words. Keeping in mind that using word embeddings is a form of transfer learning, under which of these circumstance would you expect the word embeddings to be helpful?
+
+    - m_1 >> m_2
